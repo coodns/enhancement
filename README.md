@@ -1,4 +1,4 @@
-# 💪 The "Cross Like Toni Kroos" Repo 💫
+# 💪 The "Enhancement" Repo 💫
 
 Welcome to this *chaotic masterpiece*! This repo was born out of pure ✨self-reflection✨ and a **burning desire to level up in 2025**. After countless lazy and unproductive days (oops), this is my attempt to pack in as much randomness, knowledge, and utility as possible.
 
