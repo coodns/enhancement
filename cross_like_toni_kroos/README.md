@@ -1,7 +1,7 @@
 # Cross Like Toni Kroos
 
 This project is named **"Cross Like Toni Kroos"**.
-Just like Toni Kroos delivers quick and precise crosses in football, this project contains code that allows fast and easy cross-account access to other AWS accounts.
+Just like Toni Kroos delivers quick and precise crosses in football, this project contains code that allows fast and easy cross-account access to **other AWS accounts.**
 ## Getting Started
 
 > **⚠️ Attention: All steps below assume the use of the Poetry program. Therefore, the Poetry plugin is required for this project. ⚠️**
