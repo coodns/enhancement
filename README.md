@@ -1,5 +1,7 @@
 # 💪 The "Enhancement" Repo 💫
 
+![20200207023430 306377](https://github.com/user-attachments/assets/6b734882-6885-4cc6-b37b-2367d4bc9820)
+
 Welcome to this *chaotic masterpiece*! This repo was born out of pure ✨self-reflection✨ and a **burning desire to level up in 2025**. After countless lazy and unproductive days (oops), this is my attempt to pack in as much randomness, knowledge, and utility as possible.
 
 ## 🔮 Why Is It Like This?
