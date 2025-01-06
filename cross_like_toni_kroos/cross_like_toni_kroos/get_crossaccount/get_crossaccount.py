@@ -1,13 +1,5 @@
 import boto3
 import random
-## 필요 나열,
-
-""" 
-Required Parameters: assume role name, 람다에서 현재 사용할 role 붙혀 
-account id, 
-
-전부 Secret 으로 떄려 박고 갖고 오는 걸로, name 이든 뭐든
-"""
 
 class get_cro:
 
@@ -46,3 +38,4 @@ class get_cro:
         }
 
         return creds
+
