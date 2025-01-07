@@ -3,6 +3,10 @@ module "atlantis" {
 
   name = "atlantis"
 
+  create_certificate = false
+  certificate_arn = "<ACM ARN>"
+  create_route53_records      = false
+
   # ECS Container Definition
   atlantis = {
     environment = [
