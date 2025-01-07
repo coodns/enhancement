@@ -5,7 +5,7 @@ module "atlantis" {
 
   create_certificate = false
   certificate_arn = "<ACM ARN>"
-  create_route53_records      = false
+  create_route53_records = false
 
   # ECS Container Definition
   atlantis = {
@@ -18,6 +18,10 @@ module "atlantis" {
         name  = "ATLANTIS_REPO_ALLOWLIST"
         value = "<gitlab allowlist>"
       },
+      {
+        name  = "ATLANTIS_GITLAB_HOSTNAME" // if you using self hosted vcs then it required
+        value = "<gitlab allowlist>"
+      }
     ]
     secrets = [
       {
