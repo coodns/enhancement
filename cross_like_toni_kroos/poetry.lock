@@ -79,6 +79,25 @@ optional = false
 python-versions = ">=3.8"
 
 [[package]]
+name = "mysql"
+version = "0.0.3"
+description = "Virtual package for MySQL-python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+mysqlclient = "*"
+
+[[package]]
+name = "mysqlclient"
+version = "2.2.6"
+description = "Python interface to MySQL"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
 name = "packaging"
 version = "24.2"
 description = "Core utilities for Python packages"
@@ -185,7 +204,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "a203f6862f377cf4939cb125d59c16aacd444319baf36dad097cb0716fbbd56a"
+content-hash = "6c03d57bcb9b67f5d772556acc5f52683ef363db401d51a1c9b66726bdbfa38b"
 
 [metadata.files]
 atomicwrites = []
@@ -195,6 +214,8 @@ botocore = []
 colorama = []
 jmespath = []
 more-itertools = []
+mysql = []
+mysqlclient = []
 packaging = []
 pluggy = []
 py = []
