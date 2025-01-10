@@ -90,6 +90,20 @@ python-versions = "*"
 mysqlclient = "*"
 
 [[package]]
+name = "mysql-connector-python"
+version = "9.1.0"
+description = "A self-contained Python driver for communicating with MySQL servers, using an API that is compliant with the Python Database API Specification v2.0 (PEP 249)."
+category = "main"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+dns-srv = ["dnspython (==2.6.1)"]
+fido2 = ["fido2 (==1.1.2)"]
+gssapi = ["gssapi (==1.8.3)"]
+telemetry = ["opentelemetry-api (==1.18.0)", "opentelemetry-sdk (==1.18.0)", "opentelemetry-exporter-otlp-proto-http (==1.18.0)"]
+
+[[package]]
 name = "mysqlclient"
 version = "2.2.6"
 description = "Python interface to MySQL"
@@ -204,7 +218,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "6c03d57bcb9b67f5d772556acc5f52683ef363db401d51a1c9b66726bdbfa38b"
+content-hash = "537b8f2b856d163288dca32b8ad81af5561a850cb4ccd7901e04ba51e30b091f"
 
 [metadata.files]
 atomicwrites = []
@@ -215,6 +229,7 @@ colorama = []
 jmespath = []
 more-itertools = []
 mysql = []
+mysql-connector-python = []
 mysqlclient = []
 packaging = []
 pluggy = []
