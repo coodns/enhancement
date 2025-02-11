@@ -1,7 +1,7 @@
 resource "aws_route_table" "priv_route" {
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = "nat-0d142135433605fd9"
+    nat_gateway_id = aws_nat_gateway.natgw.id
   }
   tags = {
     Name = "priv"
@@ -18,7 +18,7 @@ resource "aws_route_table" "priv_route" {
 resource "aws_route_table" "pub_route" {
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = "igw-065962980f949cee8"
+    gateway_id = aws_internet_gateway.igw.id
   }
 
   vpc_id = data.tfe_outputs.vpc.nonsensitive_values["aws_vpc_default_id"]
