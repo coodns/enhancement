@@ -10,6 +10,13 @@ resource "aws_subnet" "pub-d" {
   map_public_ip_on_launch                        = "true"
   private_dns_hostname_type_on_launch            = "ip-name"
   vpc_id                                         = data.tfe_outputs.vpc.nonsensitive_values["aws_vpc_default_id"]
+  tags = {
+    Name = "pub-d"
+  }
+
+  tags_all = {
+    Name = "pub-d"
+  }
 }
 
 resource "aws_subnet" "pub-b" {
@@ -24,6 +31,14 @@ resource "aws_subnet" "pub-b" {
   map_public_ip_on_launch                        = "true"
   private_dns_hostname_type_on_launch            = "ip-name"
   vpc_id                                         = data.tfe_outputs.vpc.nonsensitive_values["aws_vpc_default_id"]
+
+  tags = {
+    Name = "pub-b"
+  }
+
+  tags_all = {
+    Name = "pub-b"
+  }
 }
 
 resource "aws_subnet" "priv-a" {
@@ -61,6 +76,14 @@ resource "aws_subnet" "pub-a" {
   map_public_ip_on_launch                        = "true"
   private_dns_hostname_type_on_launch            = "ip-name"
   vpc_id                                         = data.tfe_outputs.vpc.nonsensitive_values["aws_vpc_default_id"]
+
+  tags = {
+    Name = "pub-a"
+  }
+
+  tags_all = {
+    Name = "pub-a"
+  }
 }
 
 resource "aws_subnet" "pub-c" {
@@ -75,6 +98,14 @@ resource "aws_subnet" "pub-c" {
   map_public_ip_on_launch                        = "true"
   private_dns_hostname_type_on_launch            = "ip-name"
   vpc_id                                         = data.tfe_outputs.vpc.nonsensitive_values["aws_vpc_default_id"]
+
+  tags = {
+    Name = "pub-c"
+  }
+
+  tags_all = {
+    Name = "pub-c"
+  }
 }
 
 resource "aws_subnet" "priv-c" {
