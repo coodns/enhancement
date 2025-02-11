@@ -2,10 +2,10 @@ terraform {
   backend "remote" {
     organization = "enhancement"
 
-  workspaces {
-    name = "subnet"
+    workspaces {
+      name = "subnet"
+    }
   }
-}
   required_providers {
     aws = {
       source  = "hashicorp/aws"
