@@ -3,17 +3,6 @@ resource "aws_route_table" "priv_route" {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = "nat-0d142135433605fd9"
   }
-
-  route {
-    cidr_block         = "10.10.0.0/16"
-    transit_gateway_id = "tgw-01a8e081494143de9"
-  }
-
-  route {
-    cidr_block         = "20.0.0.0/16"
-    transit_gateway_id = "tgw-01a8e081494143de9"
-  }
-
   tags = {
     Name = "priv"
   }
