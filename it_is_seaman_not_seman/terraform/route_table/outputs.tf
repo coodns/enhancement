@@ -33,3 +33,12 @@ output "priv_rt_id" {
 output "pub_rt_id" {
   value = aws_route_table.pub_route.id
 }
+
+output "eni_for_natgw_id" {
+  value = "${aws_network_interface.for_natgw.id}"
+}
+
+output "eip_natgw_id" {
+  value = "${aws_eip.eip_natgw.id}"
+}
+
