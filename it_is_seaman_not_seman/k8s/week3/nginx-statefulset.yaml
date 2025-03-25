@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx
+spec:
+  serviceName: "nginx"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      initContainers:
+        - name: init-index
+          image: busybox
+          command:
+            - sh
+            - -c
+            - 'echo "<h1>Hello from $MY_POD_NAME</h1>" > /mnt/index.html'
+          env:
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          volumeMounts:
+            - name: nginx-storage
+              mountPath: /mnt
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-storage
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: nginx-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: gp2-csi
+      resources:
+        requests:
+          storage: 5Gi
