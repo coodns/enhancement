@@ -1,0 +1,96 @@
+# oidc allow
+eksctl utils associate-iam-oidc-provider \
+--region ap-northeast-2 --cluster <my-cluster> --approve
+
+# aws-load-balancer-controller 에서 사용할 iam policy 생성
+curl -o alb-iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json
+
+# 다운로드 받은 json 파일을 통해 iam policy 생성
+aws iam create-policy \
+  --policy-name albcontrollepolicy \
+  --policy-document file://alb-iam-policy.json
+
+# eksctl을 통해 생성된 service account iam 역할에 방금 생성한 정책 부착
+  aws iam attach-role-policy \
+  --role-name <eksctl 에서 생성해준 service Account IAM role arn> \
+  --policy-arn arn:aws:iam::<my-aws-account>:policy/albcontrollepolicy
+
+# 생성한 IAM 정책을 통해, Service Account 생성
+eksctl create iamserviceaccount \
+    --cluster <my-cluster>\
+    --namespace kube-system \
+    --name aws-load-balancer-controller \
+    --attach-policy-arn arn:aws:iam::<my-aws-account>:policy/albcontrollerrole \
+    --override-existing-serviceaccounts \
+    --approve
+
+# eks-charts repository 추가 후 로컬 업데이트
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+
+# helm을 통해 alb controller 다운로드
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+  -n kube-system \
+  --set clusterName=<my-cluster> \
+  --set serviceAccount.create=false \
+  --set region=ap-northeas  t-2 \
+  --set vpcId=<vpc-id> \
+  --set serviceAccount.name=albcontrollerrole \
+  --set image.repository=602401143452.dkr.ecr.ap-northeast-2.amazonaws.com/amazon/aws-load-balancer-controller
+
+
+kubectl apply -f ebs-pvc.yaml
+kubectl apply -f nginx-deployment.yaml
+kubectl apply -f nginx-service.yaml
+kubectl apply -f nginx-ingress.yaml
+
+
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+helm repo update
+
+helm install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver \
+  --namespace kube-system \
+  --set controller.serviceAccount.create=true \
+  --set controller.serviceAccount.name=ebs-csi-controller-sa \
+  --set enableVolumeScheduling=true \
+  --set enableVolumeResizing=true \
+  --set enableVolumeSnapshot=true
+
+
+
+curl -o ebs-csi-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-ebs-csi-driver/master/docs/example-iam-policy.json
+aws iam create-policy \
+  --policy-name AmazonEKS_EBS_CSI_Driver_Policy \
+  --policy-document file://ebs-csi-policy.json
+
+  aws iam attach-role-policy \
+  --role-name eksctl-<my-cluster>-nodegroup-ng--NodeInstanceRole-LnZxXataCRrm \
+  --policy-arn arn:aws:iam::<my-aws-account>:policy/AmazonEKS_EBS_CSI_Driver_Policy
+
+
+
+eksctl create iamserviceaccount \
+    --cluster <my-cluster>\
+    --namespace kube-system \
+    --name aws-load-balancer-controller \
+    --attach-policy-arn arn:aws:iam::<my-aws-account>:policy/albcontrollerrole \
+    --override-existing-serviceaccounts \
+    --approve
+
+
+    --name my-service-account-3 \
+    --approve
+
+
+    --attach-policy-arn arn:aws:
+    --attach-policy-arn arn:aws:iam::<my-aws-
+    --attach-policy-arn arn:aws:iam::<my-aws-account>:policy
+    --attach-policy-arn arn:aws:iam::402010684322:policy/s3-list-only-policy \
+    --override-existing-serviceaccounts \
+    --approve
+
+eksctl create iamserviceaccount \
+    --cluster codns-cluster \
+    --namespace default \
+    --name week4-sa-2 \
+    --approve

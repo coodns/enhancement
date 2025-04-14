@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: assumerole
+spec:
+  automountServiceAccountToken: true
+  serviceAccount: week4-sa
+  containers:
+  - command:
+    - sleep
+    - infinity
+    image: amazon/aws-cli:latest
+    name: assumerole
