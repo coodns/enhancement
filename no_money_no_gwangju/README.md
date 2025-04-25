@@ -12,18 +12,6 @@
 
 <br>
 
-## 📋 Table of Contents
-
-- [Introduction](#-introduction)
-- [Key Features](#-key-features)
-- [Architecture](#-architecture)
-- [Installation and Deployment](#-installation-and-deployment)
-- [Usage](#-usage)
-- [Customization](#-customization)
-- [Important Notes](#-important-notes)
-
-<br>
-
 ## 🌟 Introduction
 
 AWS Free Tier offers various AWS services free of charge within limited usage for 12 months. However, unexpected costs may occur when the Free Tier period ends or when usage exceeds the free limits.
@@ -128,6 +116,11 @@ This project uses AWS CDK to solve the following problems:
    ```
 <br>
 
+#### How to check my account Creation date ❓
+
+**메일을 찾든지 aws support 문의 하던지 알아서 ㄱㄱ 그것까진 난 모름**
+
+
 ## 📝 Usage
 
 ### Post-Deployment Verification
@@ -190,6 +183,6 @@ Add or modify service and resource restrictions in the IAM policy statements as 
 ---
 
 <div align="center">
-  <p>Made with ❤️ for AWS Free Tier users</p>
-  <p>© 2024 No Money No Gwangju Team</p>
+  <p>Made with ❤️ for coodns</p>
+  <p>© 2024 coodns</p>
 </div>
