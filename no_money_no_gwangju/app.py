@@ -40,16 +40,16 @@ class FreeTierAlertsStack(Stack):
             "EmailAddress",
             type="String",
             description="알림을 받을 이메일 주소",
-            default="your-email@example.com",  # 알림을 받을 이메일 주소로 변경하세요
+            default="your-email@example.com",  # ***알림을 받을 이메일 주소로 변경하세요***
         )
 
-        # 기존 IAM 사용자 ARN 파라미터 추가
-        existing_user_arn = CfnParameter(
+        # 기존 IAM 사용자 파라미터 추가
+        existing_user_name = CfnParameter(
             self,
             "ExistingUserArn",
             type="String",
-            description="기존 IAM 사용자의 ARN",
-            default="arn:aws:iam::123456789012:user/username",  # 실제 사용자 ARN으로 변경하세요
+            description="기존 IAM 사용자 이름 **arn 적지 말아요 **",
+            default="",
         )
 
         # 프리티어 종료 알림을 위한 SNS 토픽 생성
@@ -325,7 +325,7 @@ class FreeTierAlertsStack(Stack):
         )
 
         # 사용자 이름 추출
-        username = existing_user_arn.value_as_string.split("/")[-1]
+        username = existing_user_name.value_as_string.split("/")[-1]
 
         # 프리티어 정책 연결
         attach_freetier_policy = cr.AwsCustomResource(
@@ -411,7 +411,7 @@ class FreeTierAlertsStack(Stack):
         CfnOutput(
             self,
             "AttachedUserArn",
-            value=existing_user_arn.value_as_string,
+            value=existing_user_name.value_as_string,
             description="정책이 연결된 사용자 ARN",
         )
 

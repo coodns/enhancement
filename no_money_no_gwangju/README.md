@@ -75,7 +75,7 @@ This project uses AWS CDK to solve the following problems:
    poetry run cdk deploy \
      --parameters AccountCreationDate=YYYY-MM-DD \
      --parameters EmailAddress=your-email@example.com \
-     --parameters ExistingUserArn=arn:aws:iam::123456789012:user/username
+     --parameters ExistingUserName=username # arn 이 아닌 iam 이름만 꼭 적을것
    ```
 
 #### Method 2: Using Virtual Environment
