@@ -69,7 +69,7 @@ Resources:
   KorRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !Sub '${AWS::StackName}-kor-role'
+      RoleName: Saltware-KOR-role
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
